@@ -41,12 +41,25 @@ mkdir Ext-Inst Raw-Data Scripts
 cd Ext-Inst
 sudo apt-get install samtools
 
-## BBMap
+# BBMap
 # For whatever reason I can't wget, gzip and tar all in one with pipes, so separate commands and get rid of the old .tar file 
 sudo wget -N -N https://sourceforge.net/projects/bbmap/files/latest/download/BBMap_37.36.tar.gz
 gzip -d BBMap_37.36.tar.gz
-tar BBMap_37.36.tar
+tar xvz BBMap_37.36.tar
 rm BBMap_37.36.tar
+
+# hmmer
+sudo wget http://eddylab.org/software/hmmer3/3.1b2/hmmer-3.1b2-linux-intel-x86_64.tar.gz
+tar -xvzf hmmer-3.1b2-linux-intel-x86_64.tar.gz
+rm -xvzf hmmer-3.1b2-linux-intel-x86_64.tar.gz
+cd hmmer-3.1b2-linux-intel-x86_64
+./configure && make && sudo make install
+
+# MCL
+sudo wget http://www.micans.org/mcl/src/mcl-latest.tar.gz
+tar -zxvf mcl-14-137.tar.gz && cd mcl-14-137
+./configure && make && sudo make install
+
 
 # Python packages - specifically pandas
 cd /home
