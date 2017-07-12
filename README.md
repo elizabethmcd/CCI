@@ -12,11 +12,3 @@
 
 _Important: In the future I plan to learn docker to implement the shell script a bit easier. For now everything is recapitulated as a shell script so I don't have to fiddle with everything and struggle._
 
-## 2017-07-11
-
-Made the initial git repository commit with the instructions for setting up a VM through CCI and my initial shell script with the commands for configuring sudo privileges, fileshare mount, and software/packages installation. The following software/packages are included in the shell script and are successfully installed: 
-
-- BBMap
-- Samtools
-- Python pandas
-- Python pip for installation of packages 

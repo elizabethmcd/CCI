@@ -60,6 +60,8 @@ sudo wget http://www.micans.org/mcl/src/mcl-latest.tar.gz
 tar -zxvf mcl-14-137.tar.gz && cd mcl-14-137
 ./configure && make && sudo make install
 
+# For installing blast, ftp 2.6.0 over with cyberduck? I'm honestly not sure how I got it to work. 
+
 
 # Python packages - specifically pandas
 cd /home
