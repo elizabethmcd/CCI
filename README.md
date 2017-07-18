@@ -8,7 +8,11 @@
 
 4. This website has the information for allocating memory to the /home directory: https://kb.wisc.edu/cci/page.php?id=64024. These steps are also in the `vm-installs.sh` script. 
 
-5. The rest of the steps including giving a modified user sudo privileges and installing software from previous VM sessions are in the script `vm-installs.sh`. This will allocate space, mount the fileshare, give sudo privileges and also make any installations specific to external software or Python packages that you have used in the past and want to update to the shell script. 
+5. The rest of the steps including giving a modified user sudo privileges and installing software from previous VM sessions are in the scripts of this repository. 
+- `fileshare-mount.sh` as the root user 
+- `vm-sizer.sh` as the root user
+- Then give sudo privileges to a user to switch to
 
-_Important: In the future I plan to learn docker to implement the shell script a bit easier. For now everything is recapitulated as a shell script so I don't have to fiddle with everything and struggle._
+6. `vm-installs.sh` installs the external software and packages for doing what you want to do. 
+
 
