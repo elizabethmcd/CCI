@@ -16,7 +16,7 @@ apt-get update
 apt-get dist-upgrade
 apt-get install cifs-utils
 mkdir /mcmahon-fileshare
-sudo mount -t cifs -o user=emcdaniel,domain=ad.wisc.edu,sec=ntlmssp //bact-mcmahonlab.drive.wisc.edu/mcmahonlab/mcmahon-fileshare
+sudo mount -t cifs -o user=emcdaniel,domain=ad.wisc.edu,sec=ntlmssp //bact-mcmahonlab.drive.wisc.edu/mcmahonlab mcmahon-fileshare/
 
 # Make user with sudo privileges and switch to that user for future installations
 
@@ -62,8 +62,6 @@ sudo wget http://www.micans.org/mcl/src/mcl-latest.tar.gz
 tar -zxvf mcl-14-137.tar.gz && cd mcl-14-137
 ./configure && make && sudo make install
 cd ..
-
-# For installing blast, ftp 2.6.0 over with cyberduck? I'm honestly not sure how I got it to work. 
 
 # Things for anvi'o 
 
