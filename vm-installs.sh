@@ -11,33 +11,35 @@
 sudo apt-get install git
 git clone https://github.com/lizilla1993/mapMetasVsRefs.git
 
-# Directories in emcdaniel for installations 
+# Directories in emcdaniel for installations and other things
 mkdir Ext-Inst Raw-Data Scripts
 
 # Samtools
 cd Ext-Inst
 sudo apt-get install samtools
+# Doesn't actually put it in this folder - it's in the bin with apt-get install
 
 # BBMap
-# For whatever reason I can't wget, gzip and tar all in one with pipes, so separate commands and get rid of the old .tar file 
 sudo wget -N -N https://sourceforge.net/projects/bbmap/files/latest/download/BBMap_37.36.tar.gz
-gzip -d BBMap_37.36.tar.gz
-tar xvz BBMap_37.36.tar
-rm BBMap_37.36.tar
+tar -xvzf BBMap_37.36.tar.gz
+rm BBMap_37.36.tar.gz
 
 # hmmer
 sudo wget http://eddylab.org/software/hmmer3/3.1b2/hmmer-3.1b2-linux-intel-x86_64.tar.gz
 tar -xvzf hmmer-3.1b2-linux-intel-x86_64.tar.gz
-rm -xvzf hmmer-3.1b2-linux-intel-x86_64.tar.gz
+rm hmmer-3.1b2-linux-intel-x86_64.tar.gz
+yes
 cd hmmer-3.1b2-linux-intel-x86_64
 ./configure && make && sudo make install
 cd ..
 
 # MCL
 sudo wget http://www.micans.org/mcl/src/mcl-latest.tar.gz
-tar -zxvf mcl-14-137.tar.gz && cd mcl-14-137
+tar -zxvf mcl-latest.tar.gz && cd mcl-14-137
 ./configure && make && sudo make install
 cd ..
+rm mcl-latest.tar.gz
+yes
 
 # Things for anvi'o 
 
