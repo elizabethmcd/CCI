@@ -91,3 +91,6 @@ sudo apt-get install python3-pip
 # pandas
 sudo -H pip3 install pandas 
 
+cd /home/emcdaniel/Ext-Inst
+sudo apt-get install default-jre
+
