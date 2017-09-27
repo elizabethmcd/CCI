@@ -26,3 +26,18 @@ Alright, also not the best idea to have the sudo privileges in the shell script.
 3. Make user with sudo privileges as `root`, then switch to that user.
 4. Run `vm-installs.sh` 
 
+## 2017-09-26
+
+Killed previous machine because of storage issues, trying to add storage at beginning on top of 40GB. 
+
+User modifications: 
+
+`adduser username`
+
+`su - username`
+
+`usermod -aG sudo username`
+
+Here is a [quickstart](https://www.digitalocean.com/community/tutorials/how-to-create-a-sudo-user-on-ubuntu-quickstart) for when you forget how to do this again. 
+
+
