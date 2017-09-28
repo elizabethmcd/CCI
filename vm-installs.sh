@@ -28,7 +28,6 @@ rm BBMap_37.36.tar.gz
 sudo wget http://eddylab.org/software/hmmer3/3.1b2/hmmer-3.1b2-linux-intel-x86_64.tar.gz
 tar -xvzf hmmer-3.1b2-linux-intel-x86_64.tar.gz
 rm hmmer-3.1b2-linux-intel-x86_64.tar.gz
-yes
 cd hmmer-3.1b2-linux-intel-x86_64
 ./configure && make && sudo make install
 cd ..
@@ -39,7 +38,6 @@ tar -zxvf mcl-latest.tar.gz && cd mcl-14-137
 ./configure && make && sudo make install
 cd ..
 rm mcl-latest.tar.gz
-yes
 
 # Things for anvi'o 
 
@@ -91,6 +89,7 @@ sudo apt-get install python3-pip
 # pandas
 sudo -H pip3 install pandas 
 
+# java 
 cd /home/emcdaniel/Ext-Inst
 sudo apt-get install default-jre
 
