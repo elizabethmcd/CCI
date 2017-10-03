@@ -93,3 +93,8 @@ sudo -H pip3 install pandas
 cd /home/emcdaniel/Ext-Inst
 sudo apt-get install default-jre
 
+# Multiprocessing comes with python, don't need to install separately 
+# FastQC
+sudo apt-get install fastqc
+
+
