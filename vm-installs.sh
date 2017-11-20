@@ -97,4 +97,13 @@ sudo apt-get install default-jre
 # FastQC
 sudo apt-get install fastqc
 
+# Mafft
+wget http://mafft.cbrc.jp/alignment/software.source.html/mafft-7.313-with-extensions-src.tgz 
+tar -xvfz mafft-7.313-with-extensions-src.tgz
+
+# Raxml
+sudo apt-get install raxml
+
+
+
 
