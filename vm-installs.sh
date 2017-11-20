@@ -99,7 +99,7 @@ sudo apt-get install fastqc
 
 # Mafft
 wget http://mafft.cbrc.jp/alignment/software.source.html/mafft-7.313-with-extensions-src.tgz 
-tar -xvfz mafft-7.313-with-extensions-src.tgz
+tar -xvfz mafft-7.313-with-extensions-src.tgz # this probably doesn't work, this isn't how I installed it before
 
 # Raxml
 sudo apt-get install raxml
