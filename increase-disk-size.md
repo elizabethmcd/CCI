@@ -39,7 +39,7 @@ Should give you something like `0:0:0:0 1:0:0:0 2:0:0:0` or something of that va
 Rescan the scsi bus. Do it with the first listed one. The one I used the first time was `1:0:0:0`:
 
 ```
-echo 1 > /sys/class/scsci_device/1\:0\:0\:0/device/rescan
+echo 1 > /sys/class/scsi_device/1\:0\:0\:0/device/rescan
 ```
 
 This rescans the current scsi bus and the disk size that has changed will then show up. 
@@ -122,3 +122,5 @@ I've come to a point where I need to extend the disk space to 1.5 TB for filteri
 Ok none of that worked because all of the /dev/sda disks are in use so I can't delete them or extend them. I've tried rebooting the machine because it said something about that. 
 
 WELL I can't even ssh into the machine anymore, so I'm destroying it. START OVER!!! 
+
+Ok starting over. Evidently if you scan the 1 sys/device and the space doesn't show up in fdisk -l, scan the 2. I've only used host0 though. 
