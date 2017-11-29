@@ -124,3 +124,10 @@ Ok none of that worked because all of the /dev/sda disks are in use so I can't d
 WELL I can't even ssh into the machine anymore, so I'm destroying it. START OVER!!! 
 
 Ok starting over. Evidently if you scan the 1 sys/device and the space doesn't show up in fdisk -l, scan the 2. I've only used host0 though. 
+
+Ok I now got this to work. I've only ever gotten this to work when working with sda4 and partitioning 4. I think the sda# and partition have to match. For whatever reason I was trying to partition 4 spaces on sda3, when it should've been 3 partitions. These steps work, when I actually follow them. If they work multiple times and mulitple extensions, who knows. That may involve deleting partitions. 
+
+Screenshots of the sucessful process to compare in the future: 
+
+![](/img/1.png)
+![](/img/2.png)
