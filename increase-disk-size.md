@@ -19,7 +19,8 @@ Use the guidlines in the managing filesystems post. Don't have to do anything be
 
 ## Using Above the 40G Default Size
 
-1. Change the storage in 'edit'
+1. Reconfigure a machine on the right hand side
+2. Press 'edit' in the storage tab and change the amount of storage. Collectively across VMs we can't go over 2 TB. 
 2. Submit a reconfiguration request
 3. Partition as following below following the steps in the Blog Post
 
@@ -112,4 +113,12 @@ resize2fs /dev/mapper/Volume00-home
 
 YOU SHOULD THEN BE GOOD TO GO! 
 
-This will then allow you to add files from the mounted fileshare to folders in your /home folder so you can directly do analyses there. Because who in the heck knows how to link programs to look at things in the fileshare. You have to move things back and forth for now. 
+This will then allow you to add files from the mounted fileshare to folders in your /home folder so you can directly do analyses there. Because who in the heck knows how to link programs to look at things in the fileshare. You have to move things back and forth for now.
+
+### Wednesday 2017-11-29 Note
+
+I've come to a point where I need to extend the disk space to 1.5 TB for filtering a bunch of metagenomes. The important thing I learned is that you can't have more than 4 partitions. So you have to delete a partition, but I haven't figured out if I've deleted the correct one. Usually I list the fdisk and look at where I think the allocated space is put, and I delete a different one. Usually it will give some error that it's in use if it can't be deleted, so pick a different partition to delete. When you go to make a new partition, it will show the partition types, and under primary currently is says "2 primary, 1 extended, 1 free" so those are the 4 partitions, and I can use 1 to mess with. So then make a primary one. 
+
+Ok none of that worked because all of the /dev/sda disks are in use so I can't delete them or extend them. I've tried rebooting the machine because it said something about that. 
+
+WELL I can't even ssh into the machine anymore, so I'm destroying it. START OVER!!! 
