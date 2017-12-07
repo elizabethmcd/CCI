@@ -98,11 +98,16 @@ sudo apt-get install default-jre
 sudo apt-get install fastqc
 
 # Mafft
-wget http://mafft.cbrc.jp/alignment/software.source.html/mafft-7.313-with-extensions-src.tgz 
-tar -xvfz mafft-7.313-with-extensions-src.tgz # this probably doesn't work, this isn't how I installed it before
+# wget http://mafft.cbrc.jp/alignment/software.source.html/mafft-7.313-with-extensions-src.tgz 
+# tar -xvfz mafft-7.313-with-extensions-src.tgz # this probably doesn't work, this isn't how I installed it before
+sudo apt-get install mafft
+# I no longer remember how I installed mafft without apt-get
 
 # Raxml
 sudo apt-get install raxml
+
+# Biopython
+sudo pip3 install biopython
 
 
 
