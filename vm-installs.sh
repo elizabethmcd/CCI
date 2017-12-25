@@ -109,6 +109,23 @@ sudo apt-get install raxml
 # Biopython
 sudo pip3 install biopython
 
+# Pyparanoid for COGs analyses
+# all the python2 things
+sudo apt-get install libfreetype6-dev
+sudo apt-get install pypy-dev
+sudo apt-get install hmmer
+sudo apt-get install cd-hit
+sudo apt-get install muscle
+sudo wget http://github.com/bbuchfink/diamond/releases/download/v0.9.14/diamond-linux64.tar.gz
+sudo tar xzf diamond-linux64.tar.gz
+sudo rm -rf diamond-linux64.tar.gz
+sudo mv diamond /usr/local/bin
+# dumb things with pypy for numpy
+sudo apt-get install python-dev
+sudo pip install numpy
+sudo pip install pandas
+sudo pip install biopython 
+
 
 
 
