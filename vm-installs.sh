@@ -115,6 +115,7 @@ sudo apt-get install libfreetype6-dev
 sudo apt-get install pypy-dev
 sudo apt-get install hmmer
 sudo apt-get install cd-hit
+# IMPORTANT CDHIT THING, MAKE SOFT LINK TO CD-HIT AND NOT CDHIT
 sudo apt-get install muscle
 sudo wget http://github.com/bbuchfink/diamond/releases/download/v0.9.14/diamond-linux64.tar.gz
 sudo tar xzf diamond-linux64.tar.gz
@@ -125,7 +126,36 @@ sudo apt-get install python-dev
 sudo pip install numpy
 sudo pip install pandas
 sudo pip install biopython 
+# error came up when plotting things
+sudo apt-get install python-tk
 
+# ANI Calculator: download from JGI, move over, and into bin plus the nmscan script
 
+# FastViromeExplorer
+cd /home/emcdaniel/Ext-Inst
+sudo git clone https://code.vt.edu/saima5/FastViromeExplorer
+sudo apt-get install default-jdk
+cd FastViromeExplorer/tools-linux
+sudo cp kallisto samtools /usr/local/bin
+sudo javac -d bin src/*.java
 
+# DESMAN
+sudo apt-get install build-essential libgsl0-dev
+sudo git clone https://github.com/chrisquince/DESMAN
+cd DESMAN
+sudo pip install Cython
+sudo python ./setup.py install
+
+# Ete3 dependencies
+sudo apt-get install python-numpy python-qt4 python-lxml python-six
+# Ete3 with miniconda because manually works like shit
+sudo wget http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh -O Miniconda-latest-Linux-x86_64.sh
+bash Miniconda-latest-Linux-x86_64.sh -b -p ~/anaconda_ete/
+# ete3 with conda
+conda install anaconda-client
+conda install -c etetoolkit ete3 ete_toolchain
+# now python paths are changed because with anaconda
+# ETE3 visualization needs an X server
+sudo apt-get install xvfb
+# then preface scripts for viz with "xvfb-run python Script"
 
