@@ -131,3 +131,9 @@ Screenshots of the sucessful process to compare in the future:
 
 ![](/img/1.png)
 ![](/img/2.png)
+
+### Monday 2018-02-26 Note
+
+I've created a new VM because something is wrong with the space of /root on the other one. When increasing the disk space, sometimes it won't recognize that you've recongifured the machine unless you play around with the scsi hosts and buses. So sometimes just pick the different numbers until it will show that /dev/sda disk has however much space you reconfigured to. 
+
+The other important thing is when in `fdisk`, is figuring out where the start place is for the extents. Just playing around with numbers, it has to start at the last end place, then the default will become what is already available from the reconfiguration request. This seems to be a problem because when you didn't use all of the 40G of the default space and extended that, then added 300G. But now I have 300G. 
