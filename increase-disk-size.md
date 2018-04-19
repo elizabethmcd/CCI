@@ -137,3 +137,55 @@ Screenshots of the sucessful process to compare in the future:
 I've created a new VM because something is wrong with the space of /root on the other one. When increasing the disk space, sometimes it won't recognize that you've recongifured the machine unless you play around with the scsi hosts and buses. So sometimes just pick the different numbers until it will show that /dev/sda disk has however much space you reconfigured to. 
 
 The other important thing is when in `fdisk`, is figuring out where the start place is for the extents. Just playing around with numbers, it has to start at the last end place, then the default will become what is already available from the reconfiguration request. This seems to be a problem because when you didn't use all of the 40G of the default space and extended that, then added 300G. But now I have 300G. 
+
+### Tuesday 2018-04-17 Note
+
+I recently learned from the CCI people how to create a new "hard" disk and increase the size of /home or /root using that allocated space. This kind of skips around partitioning an existing disk when you "edit" the disk in the CCI virtualization GUI to then be increased. This is now a new disk of it's own, usually under the /sdb class and not /sda like the already mounted disks. I have done this successfully a few times with my own VMs and increasing the size of Ben's VM for mothur purposes, so hopefully this is streamlined now. 
+
+Using `fdisk -l` can see the different disks: 
+```
+Disk /dev/sdb: 1073.7 GB, 1073741824000 bytes
+255 heads, 63 sectors/track, 130541 cylinders, total 2097152000 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk identifier: 0x00000000
+
+Disk /dev/sdb doesn't contain a valid partition table
+
+Disk /dev/sda: 42.9 GB, 42949672960 bytes
+64 heads, 32 sectors/track, 40960 cylinders, total 83886080 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk identifier: 0x000b06de
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1   *        2048      499711      248832   83  Linux
+/dev/sda2          501758    83884031    41691137    5  Extended
+/dev/sda5          501760    83884031    41691136   8e  Linux LVM
+```
+
+Where sdb has the ~ 1 TB of sapce allocated, and /dev/sda has the ~40 GB of default space allocated. I have already run the steps listed above for allocating about ~25GB from /dev/sda to the /home directory. Now to create a partition table on /dev/sdb: 
+
+```
+/sbin/fdisk /dev/sdb
+n
+p
+<enter>
+<enter>
+<enter>
+w
+```
+
+`partprobe -s` will then scan for the newly created partition. The disk is now assigned a number from when it was partitioned with all the space. Create a new physical volume, extend the volume group, and extend the logical volume. Then the steps are the same as adding default space with resizing to the home disc with how much space you want. 
+
+```
+pvcreate /dev/sdb1
+vgextend Volume00 /dev/sdb1
+lvextend --size +800G /dev/mapper/Volume00-home /dev/sdb1 
+resize2fs /dev/mapper/Volume00-home
+```
+
+I have allocated 800 GB of space to the home directory, and now I will add some space to the root directory since I know that sometimes that gets filled up with installing things. Except for I'm not sure how to add things to the /dev/dm-5 disk which isn't part of Volume00 logical volume group. I could've sworn I did this with the CCI people, but I'll just install things under root and hopefully it will be ok for now. I'll probably have to email them again about this specific documentation. 
+

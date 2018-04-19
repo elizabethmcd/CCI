@@ -9,3 +9,6 @@ Once you have mounted the fileshare, it is very easy to copy files to a specific
 5. Also use `rsync` so the file transfer is not interuppted 
 
 These steps also work if you are on another remote server, such as CHTC, with which you can't mount the fileshare. So either way if you are on the VM, choose to just `cp` into the mounted fileshare, or `scp`. 
+
+Example for transferring directories: 
+`scp -r root@10.128.254.54:/home/emcdaniel/phylo-trees/TB-Deltas/* .`
